@@ -45,3 +45,44 @@ Originally established by [BitShares](https://bitshares.org/), the [delegated pr
 The fee model of Tron is a combination of fee-based and stake-based models, which uses resources obtained from staking by default, and falls back to taking fees from account balance if there aren't enough resources from staking to be used. This model allows for free usage of the blockchain for long-time TRX holders, while not compromising the blockchain's usability for one-off users or those who would not bother learning about the staking process.
 
 The SunStake team believes that these desirable properties of the Tron blockchain will enable a smooth user experience of the platform.
+
+## Using the SunStake Protocol
+
+Using the SunStake network mainly involves the process of the minting, exchanging, and burning of sythetics.
+
+### Minting Synthetics
+
+In the SunStake protocol, users create sUSD, the syntheic US dollar, by excessively collateralizing with SUN tokens. As opposed to being backed by real US dollars in a reserve controlled by a centralized third party, sUSD tokens are backed by SUN tokens locked up via staking in an open-source smart contract.
+
+Unlike a hard-pegged token, the price of the backing asset (i.e. SUN tokens) for sUSD is potentially highly volatile. Thus, a high collateralization ratio must be maintained for the system to properly function. The SunStake team will set the initial collateralization ratio to `1000%`, which can be changed later through a decentralized governance process.
+
+The protocol incentivizes staking and collateralization ratio maintanance with financial rewards. When a user stakes SUN and mints sUSD (and maintains the required ratio), he/she receives:
+
+- exchange fees paid in SSK
+
+- staking rewards in SSK
+
+Exchange fees are paid by users who use the SunStake Exchange to exchange between different synthetic assets, and shared 50/50 between SUN token stakers for providing the service, and SSK token stakers for managing the evolving the network.
+
+Note that since staking SUN tokens and minting sUSD puts the funds locked into a debt pool, there's a risk (and, of course, rewards) involved for doing so. Stakers are advised to fully understand the risk before participating.
+
+### Exchanging Synthetics
+
+Synthetic asset holders can exchange between different types of synthetics supported by the protocol through the use of the SunStake Exchange. Exchange trades are executed directly based on the exchange rate between the two assets involved. So no counter-party is required for a trade to happen.
+
+For example, if a user wants to convert `1,000` sUSD to sBTC (Bitcoin synthetic), and the real-time price of sBTC is `10,000` sUSD, the user will receive `0.1` sBTC (without considering fees for illustration purposes), without slippages at all.
+
+The reason SunStake Exchange is able to convert between synthetic assets directly without a counter-party is that the risk from different asset types is part of the commitment of all pool participants (i.e. SUN stakers) anyways, and all the pool cares about is the total amount of debt, which doesn't change in the event of asset exchange.
+
+### Burning Synthetics
+
+Once a SUN holder stakes his/her SUN tokens and mints synthetics, the part of SUN tokens used to fulfill the `1000%`
+collateralization ratio will be locked and not available for transfers. These SUN tokens will only be released when they're no longer being used for the ratio maintanance, which is when the debt (from minting synthetics) of the user decreases, and a user's debt decreases when:
+
+- the overall value of all synthetic assets in existence decreases; or
+
+- the user burns synthetic assets he/she holds.
+
+Therefore, to exit the pool and free up the locked SUN tokens, a user must burn the same amount of synthetic assets as his/her debt. Doing so is essentially "paying off" the debt (imagine the user taking a loan in synthetics when minting) to free up the collateral (i.e. SUN tokens).
+
+Due to price movements (both in SUN and in synthetics) it's possible that a user's collateralization ratio will fall below the required level of `1000%`, thus disqualifying him/her from receiving rewards. In this case, the user can increase the ratio by either adding more SUN tokens, or by burning synthetics.
