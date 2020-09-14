@@ -86,3 +86,23 @@ collateralization ratio will be locked and not available for transfers. These SU
 Therefore, to exit the pool and free up the locked SUN tokens, a user must burn the same amount of synthetic assets as his/her debt. Doing so is essentially "paying off" the debt (imagine the user taking a loan in synthetics when minting) to free up the collateral (i.e. SUN tokens).
 
 Due to price movements (both in SUN and in synthetics) it's possible that a user's collateralization ratio will fall below the required level of `1000%`, thus disqualifying him/her from receiving rewards. In this case, the user can increase the ratio by either adding more SUN tokens, or by burning synthetics.
+
+## Oracles
+
+For the system to function properly, it's vital to keep the synthetic peg accurate and reliable, namely, to keep 1 sUSD = 1 US dollar. Since blockchains are isolated from the outside world, the SunStake network cannot possibly know the value of any assets that's not being traded on the same blockchain. Even for those already being traded on the Tron blockchain (e.g. on [Justswap](https://justswap.io/)), they're typically manipulation-prone due to their small volumes compared to large centralized exchanges.
+
+Thus, an oracle system must be used to continuously feed price data onto the blockchain via a smart contract. Initially, the network will use an oracle run by the SunStake team, but will eventually migrate to community-elected oracles.
+
+### Oracle Contract
+
+An oracle contract will be developed and deployed to the Tron blockchain. It will be created as a public good that any other smart contracts can use. External contracts can retrieve price data simply by calling a method on the oracle contract, without building and maintaining the entire oracle network themselves. No fees will be charged by the oracle contract except, of course, the energy needed for calling the contract by the Tron blockchain itself.
+
+### SunStake Oracles
+
+The SunStake team will develop and open-source an oracle that can be later used by the community. The oracle program will pull data from multiple sources and push measurements into the oracle contract.
+
+To speed up development and upgrades, in the early phase of the SunStake network the team will simply be running an oracle itself, but will eventually migrate to community-run oracles for better decentralization and censorship-resistence.
+
+### Migration to Community Oracles
+
+As mentioned above, the SunStake network will eventually evolve to using oracles run by the community for getting price data. These oracles will be elected through a decentralized voting process by SSK holders.
