@@ -106,3 +106,73 @@ To speed up development and upgrades, in the early phase of the SunStake network
 ### Migration to Community Oracles
 
 As mentioned above, the SunStake network will eventually evolve to using oracles run by the community for getting price data. These oracles will be elected through a decentralized voting process by SSK holders.
+
+## The Debt Pool
+
+The debt pool is one of the core components of the protocol. This section serves to explain what it is, and to give examples regarding some of the calculations involved.
+
+### What is the Debt Pool
+
+Whenever someone stakes SUN tokens and mints sUSD, he/she incurs a "debt". It's called "debt" because by minting, the user is essentially borrowing sUSD tokens from the system, and the SUN tokens are the collateral. It's borrowing money from a bank, and collateralizing it with one's house.
+
+What's different from borrowing money from a bank is that in SunStake, one's debt is pooled and dynamically adjusted.
+
+Debts are pooled. To exit the system, one does _not_ pay the amount that's originally minted. Instead, the user's share of the pool is paid (i.e. burned). For example, if a user joins the pool by minting 100 sUSD, taking up 50% of the pool, when he/she exits the pool, asumming no new participants joined, he/she would need to pay 50% of whatever the entire pool is worth at the point of exit, and the amount has little to do with what's originally minted (100 sUSD).
+
+The reason for the pool value change is that the following invariant always holds:
+
+    Debt Pool Value == Total Value of All Synthetics
+
+Since prices of synthetics change over time (unless only sUSD exists), the debt pool is constantly adjusted to match the aggregate value of all synthetic assets.
+
+### Debt Pool Examples
+
+For illustration purposes, exchange fees are ignored in this section.
+
+As an example, let's say 4 users are currently in the pool:
+
+| User    | Minted Value |
+| ------- | ------------ |
+| Alice   | 100 sUSD     |
+| Bob     | 200 sUSD     |
+| Charlie | 300 sUSD     |
+| David   | 400 sUSD     |
+
+Total amount of debts in the system is `1,000 sUSD`.
+
+With a current exchange price of `1 sETH = 200 sUSD`, Bob swaps his `200` sUSD holdings into sETH. He will receive exactly `1` sETH because there's no slippage/spread.
+
+Now everyone's position becomes:
+
+| User    | sUSD | sETH | Total Value |
+| ------- | ---- | ---- | ----------- |
+| Alice   | 100  | -    | 100 sUSD    |
+| Bob     | -    | 1    | 200 sUSD    |
+| Charlie | 300  | -    | 300 sUSD    |
+| David   | 400  | -    | 400 sUSD    |
+
+The debt pool value is still `1,000 sUSD` at this point, and everyone except Bob can just burn the sUSD they're holding and leave the system.
+
+Assuming no one joined or left, after a while, ETH depreciates in value and the new exchange rate becomes `1 sETH = 100 sUSD`.
+
+After this price change everyone's position becomes:
+
+| User    | sUSD | sETH | Total Value |
+| ------- | ---- | ---- | ----------- |
+| Alice   | 100  | -    | 100 sUSD    |
+| Bob     | -    | 1    | 100 sUSD    |
+| Charlie | 300  | -    | 300 sUSD    |
+| David   | 400  | -    | 400 sUSD    |
+
+Total amount of debts in the system drops to `900 sUSD`.
+
+To calculate the amount of sUSD needed to be burnt to exit the system:
+
+| User    | Pool Share | Need to Burn |
+| ------- | ---------- | ------------ |
+| Alice   | 10%        | 90 sUSD      |
+| Bob     | 20%        | 180 sUSD     |
+| Charlie | 30%        | 270 sUSD     |
+| David   | 40%        | 360 sUSD     |
+
+Everyone except Bob now has some sUSD left even after burning enough sUSD to leave the pool. Bob is losing money and it makes perfect sense as he was holding an asset that dropped in value.
