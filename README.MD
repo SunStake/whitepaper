@@ -176,3 +176,49 @@ To calculate the amount of sUSD needed to be burnt to exit the system:
 | David   | 40%        | 360 sUSD     |
 
 Everyone except Bob now has some sUSD left even after burning enough sUSD to leave the pool. Bob is losing money and it makes perfect sense as he was holding an asset that dropped in value.
+
+## SSK Token
+
+Like most other blockchain projects, SunStake issues its own token: SSK. The SSK token is at the core of the SunStake protocol, and mostly used for incentivization and governance.
+
+### Token Value
+
+The value of the SSK token derives from:
+
+- the right to receive 50% of exchange fees when staked; and
+
+- the right to make decision regarding the network (governance) when staked
+
+### Staking
+
+Similar to how SUN tokens can be staked to mint synthetics, SSK tokens can also be staked, but no synthetics can be minted from staked SSK tokens.
+
+The staking of SSK tokens is essentially a proof-of-commitment type of stake. Once staked, tokens are frozen and the staker starts to enjoy the right to receive exchange fees and to vote for proposals. However, once an unstake request is initiated:
+
+- the right to earn fees and vote is lost immediately; and
+
+- tokens will be sent back to the staker only after 72 hours.
+
+So, to earn exchange fees one must commit to holding SSK tokens for at least 3 days. This delay is intentionally designed to reward commitment to the SunStake community.
+
+### Governance
+
+In the early stage of the network, development and decision making will be mostly done by the team directly, trading decentralization for development speed. As the network matures, however, everything should be gradually handed over to the community, transforming into a true decentralized autonomous organization (DAO).
+
+After the transformation, all improvements and changes to the network will be done via proposals, which will be approved by voting from SSK stakers.
+
+### Distribution
+
+Inheriting the philosophy of the SUN community, SunStake strives to maximize decentralization. There're no token sales. A total of 10 million SSK tokens will be issued:
+
+- 3 million (30%) SSK tokens will be minted and deposited into a Justswap exchange. The team will also deposit 1 million TRX upfront into the pool for providing initial liquidity.
+
+  Note that the team may withdraw from the pool if enough liquidity is provided by the community. In this case, the SSK tokens withdrawn from the pool will be destroyed.
+
+- 500,000 (5%) SSK tokens will be airdropped to existing SUN token holders.
+
+- 1 million (10%) SSK tokens are reserved for the team. This portion will only be minted after platform launch on Tron mainnet, and will be released gradually.
+
+- 5.5 million (55%) SSK tokens are reserved for incentivization purposes.
+
+  Like the team portion, these tokens will only be minted after mainnet launch. The token contract will be locked so that minting is not possible before that.
