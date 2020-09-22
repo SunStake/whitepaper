@@ -1,5 +1,11 @@
 # SunStake White Paper
 
+**Last Update Time**: September 22nd, 2020
+
+> NOTE
+>
+> This is a living document that will be updated as needed to reflect design changes over time. No infomation shall be considered final until mainnet launch.
+
 ## Introduction
 
 Since the blockchain (aka. distributed ledger) technology was first [introduced](https://bitcoin.org/bitcoin.pdf), a community of crypto enthusiasts emerged and has been growing rapidly. Blockchains are so different and isolated from the rest of the world that almost everything, even something as simple as running a trivial application, needs to be re-invented. With Bitcoin being the first ever blockchain-native asset (i.e. cryptoasset), the community has witnessed numerous others created in the process. As the ecosystem continues to mature, the diversity of cryptoassets is expected to grow further.
