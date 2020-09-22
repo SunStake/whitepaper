@@ -2,13 +2,13 @@
 
 ## Introduction
 
-Since the blockchain (aka. distributed ledger) technology was first [introduced](https://bitcoin.org/bitcoin.pdf), a community of crypto enthusiasts emerged and has been growing rapidly. Blockchains are so different and isolated from the rest of the world that almost everything, even something as simple as running a trivial application, needs to be re-invented. With Bitcoin being the first ever blockchain-native asset (i.e. cryptoasset), the community has witnessed numerous others being created in the process. As the ecosystem continues to mature, the diversity of cryptoassets is expected to grow further.
+Since the blockchain (aka. distributed ledger) technology was first [introduced](https://bitcoin.org/bitcoin.pdf), a community of crypto enthusiasts emerged and has been growing rapidly. Blockchains are so different and isolated from the rest of the world that almost everything, even something as simple as running a trivial application, needs to be re-invented. With Bitcoin being the first ever blockchain-native asset (i.e. cryptoasset), the community has witnessed numerous others created in the process. As the ecosystem continues to mature, the diversity of cryptoassets is expected to grow further.
 
 However, the inherent isolation from the "outside world" also means that only assets that were created on blockchains in the first place can be transferred, used, and exchanged on-chain, which has essentially blocked access to a wide variety of valuable traditional assets such as gold and oil. In addition, despite growing in types and valuation, most cryptoassets are found to be highly co-related with Bitcoin after all, making the exposure to different kinds of cryptoassets less meaningful than desired.
 
 Bringing off-chain assets on-chain, or even just bringing cryptoassets _cross_-chain, is a rather complicated process that's not as intuitive as one might think, which has resulted in further isolation not just between blockchains and the non-blockchain world, but also between different blockchains. For example, one cannot trade Bitcoins on Ethereum, or vice versa.
 
-While truely taking assets cross-chain remains an unsolved puzzle, with the current blockchain infrastructure built and maintained by the marvelous community, the SunStake project sets out to bridge the aforementioned gap by enabling synthetic assets to be created and exchanged on-chain, without replying on any centralized party.
+While truely taking assets cross-chain remains an unsolved puzzle, with the current blockchain infrastructure built and maintained by the marvelous community, the SunStake project sets out to bridge the aforementioned gap by enabling synthetic assets to be created and exchanged on-chain, without relying on any centralized party.
 
 ## Existing Alternative
 
@@ -26,13 +26,13 @@ Inspired by [Synthetix](https://www.synthetix.io/), the team is proposing the Su
 
 ### What are Synthetic Assets?
 
-For the formal definition, according to [Investopedia](https://www.investopedia.com/terms/s/synthetic.asp), synthetics are "_financial instruments that are engineered to simulate other instruments_". Simply put, if one holds a synthetic of an underlying asset in his/her portfolio, he/she will then be exposed to (almost) the same price movements of that underlying asset. Synthetics are nothing specific to blockchains, and have existed long before the technology came along. For example, a long stock position can be simulated by purchasing a call option and a put option of that particular at the same time, in which case the combination of the two options can be referred to as a synthetic of the long stock.
+For the formal definition, according to [Investopedia](https://www.investopedia.com/terms/s/synthetic.asp), synthetics are "_financial instruments that are engineered to simulate other instruments_". Simply put, if one holds a synthetic of an underlying asset in his/her portfolio, he/she will then be exposed to (almost) the same price movements of that underlying asset. Synthetics are nothing specific to blockchains, and have existed long before the technology came along. For example, a long stock position can be simulated by purchasing a call option and a put option of that particular stock at the same time, in which case the combination of the two options can be referred to as a synthetic of the long stock.
 
-In the context of SunStake, synthetic assets are TRC20 tokens that track price movements of other blockchain/non-blockchain assets in such a way that holding these tokens are (almost) financially the same as actually holding those assets. For instance, if a user were to buy and hold sGOLD (synthetic gold) tokens with USDT tokens, when gold appreciates against the US dollar, the user can sell his/her sGOLD tokens back to more USDT tokens than he/she started with. In fact, USDT in this example is also a synthetic, except it's controlled by a centralized party, and thus vulnerable to single point of failure.
+In the context of SunStake, synthetic assets are TRC20 tokens that track price movements of other blockchain/non-blockchain assets in such a way that holding these tokens is (almost) financially the same as actually holding those assets. For instance, if a user were to buy and hold sGOLD (synthetic gold) tokens with USDT tokens, when gold appreciates against the US dollar, the user can sell his/her sGOLD tokens back to more USDT tokens than he/she started with. In fact, USDT in this example is also a synthetic, except it's controlled by a centralized party, and thus vulnerable to single point of failure.
 
 ### Built for the SUN community
 
-The project name "SunStake" is quite self-explanatory. The protocol will allow SUN community holders (i.e. SUN token holders) to create synthetic assets by staking, and earn passive income in the process.
+The project name "SunStake" is quite self-explanatory. The protocol will allow SUN community members (i.e. SUN token holders) to create synthetic assets by staking, and earn passive income in the process.
 
 One of the aspects that set SunStake apart is the use of SUN token as collateral. Unlike many existing synthetic asset networks, SunStake does not attempt to force its own token, SSK, into its users' hands. Instead, SunStake builds its services around the established SUN community. Building and maintaining a new community is hard, and hopefully the decision to leverage an existing robust community will increase the project's chance of success.
 
@@ -62,9 +62,9 @@ The protocol incentivizes staking and collateralization ratio maintanance with f
 
 - staking rewards in SSK
 
-Exchange fees are paid by users who use the SunStake Exchange to exchange between different synthetic assets, and shared 50/50 between SUN token stakers for providing the service, and SSK token stakers for managing the evolving the network.
+Exchange fees are paid by users who use the SunStake Exchange to exchange between different synthetic assets, and shared 50/50 between SUN token stakers for providing the service, and [SSK token stakers](#Staking) for managing and evolving the network.
 
-Note that since staking SUN tokens and minting sUSD puts the funds locked into a debt pool, there's a risk (and, of course, rewards) involved for doing so. Stakers are advised to fully understand the risk before participating.
+Note that since staking SUN tokens and minting sUSD puts the funds locked into a [debt pool](#The-Debt-Pool), there's a risk (and, of course, rewards) involved for doing so. Stakers are advised to fully understand the risk before participating.
 
 ### Exchanging Synthetics
 
@@ -113,7 +113,7 @@ The debt pool is one of the core components of the protocol. This section serves
 
 ### What is the Debt Pool
 
-Whenever someone stakes SUN tokens and mints sUSD, he/she incurs a "debt". It's called "debt" because by minting, the user is essentially borrowing sUSD tokens from the system, and the SUN tokens are the collateral. It's borrowing money from a bank, and collateralizing it with one's house.
+Whenever someone stakes SUN tokens and mints sUSD, he/she incurs a "debt". It's called "debt" because by minting, the user is essentially borrowing sUSD tokens from the system, and the SUN tokens are the collateral. It's like borrowing money from a bank, and collateralizing it with one's house.
 
 What's different from borrowing money from a bank is that in SunStake, one's debt is pooled and dynamically adjusted.
 
@@ -127,7 +127,7 @@ Since prices of synthetics change over time (unless only sUSD exists), the debt 
 
 ### Debt Pool Examples
 
-For illustration purposes, exchange fees are ignored in this section.
+For illustration purposes, exchange fees are ignored in this discussion.
 
 As an example, let's say 4 users are currently in the pool:
 
@@ -151,7 +151,7 @@ Now everyone's position becomes:
 | Charlie | 300  | -    | 300 sUSD    |
 | David   | 400  | -    | 400 sUSD    |
 
-The debt pool value is still `1,000 sUSD` at this point, and everyone except Bob can just burn the sUSD they're holding and leave the system.
+The debt pool value is still `1,000 sUSD` at this point, and everyone except Bob can just burn the sUSD they're holding and leave the system. Bob can also convert his `1` sETH back to sUSD and burn them to leave.
 
 Assuming no one joined or left, after a while, ETH depreciates in value and the new exchange rate becomes `1 sETH = 100 sUSD`.
 
